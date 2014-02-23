@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jenny Chou"]
   spec.email         = ["pair+jchou@pivotallabs.com"]
   spec.summary       = %q{Hologram with Rails.}
-  spec.description   = %q{Write a longer description. Optional.}
+  spec.description   = %q{A gem to quickly get off the ground using Trulia's Hologram with a Rails project.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
