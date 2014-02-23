@@ -1,8 +1,20 @@
 #hologram_rails
 <br>A gem to quickly get off the ground using Trulia's [Hologram](https://github.com/trulia/hologram) with a Rails project.  
-<br>
-##Overview
 
+##Installation
+```ruby
+./Gemfile  
+
+gem 'hologram_rails'
+gem 'hologram', github: 'trulia/hologram'
+```
+(At the time of writing, *it's necessary to specify the trulia/hologram github repo* because it's ahead of the published gem and allows using categories in \_header.html)  
+<br>
+`bundle && rails g hologram_rails:install && bundle exec guard`  
+<br>
+Edit `./doc_assets/_header.html` as needed! This is where all the styleguide-specific html and css is placed. You can extract the styles to assets compiled in the asset pipeline and just link to the stylesheets if you want. See [this post](http://pivotallabs.com/using-hologram-rails-auto-generate-styleguides/) for details on that approach.  
+
+## What it Does
 ### [Hologram](https://github.com/trulia/hologram) Setup  
 + Parses all asset files in ./app/assets.
 + Outputs to ./public/styleguide
@@ -14,21 +26,7 @@
 + Watches everything in ./doc_assets and all assets in ./app/assets; runs `hologram` upon change.
 + Settings editable in ./Guardfile
 
-##Installation
-```ruby
-./Gemfile  
-
-gem 'hologram_rails'
-gem 'hologram', github: 'trulia/hologram'
-```
-(At the time of writing, *it's necessary to specify the trulia/hologram github repo* because it's ahead of the published gem and allows some functionality that we require in hologram_rails: using categories in the _header partial.)  
-<br>
-`bundle && rails g hologram_rails:install && bundle exec guard`  
-<br>
-Edit `./doc_assets/_header.html` as needed! This is where all the styleguide-specific html and css is placed. You can extract the styles to assets compiled in the asset pipeline and just link to the stylesheets if you want. See [this post](http://pivotallabs.com/using-hologram-rails-auto-generate-styleguides/) for details on that approach.  
-
-
-##How It Works
+###Hologram
 Hologram parses your assets (sass, less, css, md, styl, js) for comments of the following format and generates an .html file for each category of component using the _header.html and _footer.html partials Hologram provides.
 
     /*doc
